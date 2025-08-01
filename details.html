@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visitor Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Visitor Information</h2>
+  <div id="output"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const get = (key) => params.get(key) || 'Not Provided';
+
+    document.getElementById("output").innerHTML = `
+      <p><strong>Letter No:</strong> ${get("letterNo")}</p>
+      <p><strong>Firm:</strong> ${get("firm")}</p>
+      <p><strong>Visitor's Name:</strong> ${get("visitorName")}</p>
+      <p><strong>Designation:</strong> ${get("designation")}</p>
+      <p><strong>Officer to Visit:</strong> ${get("officer")}</p>
+      <p><strong>Officer's Designation:</strong> ${get("officerDesig")}</p>
+      <p><strong>Section:</strong> ${get("section")}</p>
+      <p><strong>Purpose:</strong> ${get("purpose")}</p>
+      <p><strong>Permission From - To:</strong> ${get("fromDate")} to ${get("toDate")}</p>
+      <p><strong>Photograph:</strong><br><img src="${get("photo")}" width="200"/></p>
+    `;
+  </script>
+</body>
+</html>
